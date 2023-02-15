@@ -1,27 +1,21 @@
 from playground import Playground
 from snake import Snake
+import time
 
 
 def main():
 
-    playground = Playground()
-    playground.draw_playground()
-    print(playground.num_cols)
+    RunGame = True
 
-    # rows = input_rows()
-    # rows = check_amount_rows(rows)
-    # columns = input_columns()
-    # columns = check_amount_columns(columns)
-    # rows = 9
-    # columns = 9
-    # generated_matrix = create_matrix(rows=rows, cols=columns)
-    # snake = create_snake()
-    # snake_position = starting_position(rows=rows, cols=columns)
-    # generated_matrix = placing_snake(matrix=generated_matrix, snake=snake, position=snake_position)
-    # draw_playground(generated_matrix)
-    # print('----------------')
-    # move_forward(matrix=generated_matrix, snake=snake)
-    # draw_playground(generated_matrix)
+    playground = Playground()
+    snake = Snake(num_rows=10, num_cols=10)
+    snake.placing_snake(playground=playground.playground)
+    playground.draw_playground()
+
+    while RunGame:
+        time.sleep(1)
+        snake.move_forward(playground=playground.playground)
+        playground.draw_playground()
 
 
 if __name__ == "__main__":
