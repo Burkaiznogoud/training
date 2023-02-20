@@ -1,3 +1,5 @@
+BLANK_FIELD = ' '
+
 class NewSegment:
     def __new__(cls, char):
         segment = super().__new__(cls)
@@ -10,8 +12,8 @@ class NewSegment:
 class Snake:
     def __init__(self, num_rows, num_cols):
         self.body = []
-        self.head = '^'
         self.create_snake()
+        self.head = self.body[0]
         self.lenght = len(self.body)
         self.starting_x = int(num_cols // 2)
         self.starting_y = int(num_rows // 2)
@@ -55,7 +57,5 @@ class Snake:
                 playground[new_y_pos].insert(new_x_pos, segment)
                 if segment is self.body[-1]:
                     playground[pos_y].pop(pos_x)
-                    playground[pos_y].insert(pos_x, ' ')
-
-
+                    playground[pos_y].insert(pos_x, BLANK_FIELD)
 

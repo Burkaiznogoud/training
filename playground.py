@@ -1,15 +1,13 @@
-import os
-
 MIN_ROWS_AND_COLUMNS = 9
 MAX_ROWS_AND_COLUMNS = 100
 BLANK_FIELD = ' '
 
 class Playground:
     def __init__(self):
-        self.num_rows = self.input_rows_or_cols(name='rows')
-        self.num_rows = self.check_amount(number=self.num_rows, name='rows')
-        self.num_cols = self.input_rows_or_cols(name='cloumns')
-        self.num_cols = self.check_amount(number=self.num_cols, name='columns')
+        self.num_rows = 10 # self.input_rows_or_cols(name='rows')
+        # self.num_rows = self.check_amount(number=self.num_rows, name='rows')
+        self.num_cols = 10 # self.input_rows_or_cols(name='cloumns')
+        # self.num_cols = self.check_amount(number=self.num_cols, name='columns')
         self.playground = []
         self.create_playground()
 
@@ -32,6 +30,4 @@ class Playground:
         self.playground = matrix[:]
 
 
-    def draw_playground(self):
-        os.system('cls' if os.name == 'nt' else 'clear')
-        return [print(f"{self.playground.index(_)} {_}\n") for _ in self.playground]
+

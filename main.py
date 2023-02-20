@@ -1,21 +1,42 @@
 from playground import Playground
 from snake import Snake
+from controler import Controler
+import keyboard
 import time
+import sys
 
 
 def main():
 
+    controler = Controler()
+    keyboard.record(until='w')
+    n = 0
     RunGame = True
 
-    playground = Playground()
-    snake = Snake(num_rows=10, num_cols=10)
-    snake.placing_snake(playground=playground.playground)
-    playground.draw_playground()
-
     while RunGame:
-        time.sleep(1)
-        snake.move_forward(playground=playground.playground)
-        playground.draw_playground()
+
+        keyboard.add_hotkey('w', controler.W_key_pressed, timeout=0.5)
+        keyboard.add_hotkey('s', controler.S_key_pressed, timeout=0.5)
+        keyboard.add_hotkey('a', controler.A_key_pressed, timeout=0.5)
+        keyboard.add_hotkey('d', controler.D_key_pressed, timeout=0.5)
+
+        if keyboard.is_pressed('esc'):
+            RunGame = False
+            controler.draw_playground()
+            print("Game Over.")
+            sys.exit()
+
+        controler.snake.move_forward(controler.playground.playground)
+        controler.draw_playground()
+
+        time.sleep(0.5)
+        print(n)
+        n += 1
+
+
+
+
+
 
 
 if __name__ == "__main__":
