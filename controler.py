@@ -32,8 +32,8 @@ class Controler:
     def ESC_key_pressed(self):
         try:
             sys.exit()
-        except:
-            NameError
+        except NameError:
+            print(f"{NameError} occured.")
         finally:
             self.draw_playground()
             print("Game Over.")
