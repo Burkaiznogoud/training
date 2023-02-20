@@ -1,5 +1,3 @@
-from playground import Playground
-from snake import Snake
 from controler import Controler
 import keyboard
 import time
