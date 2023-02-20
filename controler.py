@@ -1,6 +1,5 @@
 from playground import Playground
 from snake import Snake
-import keyboard
 import os
 import sys
 
@@ -34,7 +33,7 @@ class Controler:
         try:
             sys.exit()
         except:
-            ValueError
+            NameError
         finally:
             self.draw_playground()
             print("Game Over.")
