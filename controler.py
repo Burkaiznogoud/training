@@ -1,6 +1,5 @@
 from playground import Playground
 from snake import Snake
-import keyboard
 import os
 import sys
 

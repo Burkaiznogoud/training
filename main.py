@@ -7,8 +7,6 @@ import sys
 def main():
 
     controler = Controler()
-    keyboard.record(until='w')
-    n = 0
     RunGame = True
 
     while RunGame:
@@ -26,16 +24,7 @@ def main():
 
         controler.snake.move_forward(controler.playground.playground)
         controler.draw_playground()
-
         time.sleep(0.5)
-        print(n)
-        n += 1
-
-
-
-
-
-
 
 if __name__ == "__main__":
     main()
